@@ -50,12 +50,12 @@ export const ScreenContainer = styled.div`
     height: 80vw;
   }
   @media (max-width: 1440px) {
-    width: 40vw;
+    width: 40w;
     height: 27vw;
   }
   @media (max-width: 2000px) {
-    width: 30vw;
-    height: 31.5vw;
+    width: 28vw;
+    height: 17vw;
   }
   border-radius: 1%; /* Slightly rounded corners; adjust as needed */
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
