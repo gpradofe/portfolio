@@ -3,7 +3,6 @@ import AmbientLighting from "../../Atoms/AmbientLighting";
 import PointLighting from "../../Atoms/PointLighting";
 import AnimatedNotebook from "../../Molecules/AnimatedNotebook";
 import CameraSetter from "../../Atoms/CameraSetter";
-
 const Scene: React.FC = () => {
   return (
     <>

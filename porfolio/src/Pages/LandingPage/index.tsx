@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-  Container,
-  Background,
-  ScreenContainer,
-  ScreenBackground,
-  ScreenButton,
-} from "./styles";
+import { Container, Background } from "./styles";
 import landingBackground from "../../Assets/Images/background_portfolio_landing_page.png";
 import Scene from "../../Components/Organisms/Scene";
-import AnimationContext from "../../Context/AnimationContext";
+import AnimationContext from "../../Contexts/AnimationContext";
+import OverlayScreen from "../../Components/Organisms/OverlayScreen";
 
 const LandingPage: React.FC = () => {
+  const [currentTime, setCurrentTime] = useState<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean | null>(null);
+
   return (
     <AnimationContext.Provider
       value={{
-        currentTime: 0,
-        setCurrentTIme: () => {},
-        isPlaying: false,
-        setIsPlaying: () => {},
+        currentTime,
+        setCurrentTIme: setCurrentTime,
+        isPlaying,
+        setIsPlaying: setIsPlaying,
       }}
     >
       <Container>
@@ -26,13 +24,7 @@ const LandingPage: React.FC = () => {
         <Canvas style={{ height: "100vh", position: "relative" }}>
           <Scene />
         </Canvas>
-        <ScreenContainer>
-          <ScreenBackground src={landingBackground} />
-          <ScreenButton onClick={() => console.log("hi")}>
-            Button 1
-          </ScreenButton>
-          <ScreenButton>Button 2</ScreenButton>
-        </ScreenContainer>
+        <OverlayScreen />
       </Container>
     </AnimationContext.Provider>
   );
