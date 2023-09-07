@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import subtlePattern from "../../../../Assets/Images/subtle_pattern.jpg";
 
 export const StyledSection = styled.section`
   display: flex;
@@ -9,7 +10,13 @@ export const StyledSection = styled.section`
   height: 100vh;
   padding: 2rem;
   background-color: #1a1a1a;
-  background-image: url("path_to_subtle_pattern.png"); // A subtle pattern to add depth
+  background-image: linear-gradient(
+      rgba(26, 26, 26, 0.95),
+      rgba(26, 26, 26, 0.95)
+    ),
+    url(${subtlePattern});
+  background-size: cover; // Cover the entire viewport
+  background-repeat: no-repeat; // Ensure the pattern doesn't repeat
   color: #ffffff;
   box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3); // An inset shadow to create a vignette effect
 `;
@@ -19,7 +26,6 @@ export const StyledName = styled.div`
   margin-bottom: 1rem;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); // Text shadow to lift the name off the background
   transition: transform 0.2s, color 0.2s;
-  font-family: "Alcova CC", sans-serif;
 
   &:hover {
     transform: scale(1.05);
@@ -30,6 +36,7 @@ export const StyledName = styled.div`
 export const StyledTitle = styled(motion.h2)`
   font-size: 2rem;
   margin-bottom: 1rem;
+  font-family: "Alcova CC";
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
 `;
 

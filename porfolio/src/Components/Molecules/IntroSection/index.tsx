@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledIntro, StyledName, StyledSection, StyledTitle } from "./styles";
 import { motion } from "framer-motion";
-
+import subtlePattern from "../../../Assets/Images/subtle_pattern.jpg";
 const IntroSection: React.FC = () => {
   const name = "Gustavo Aniceto";
   const letters = name.split("");
@@ -48,8 +48,12 @@ const IntroSection: React.FC = () => {
       </StyledTitle>
 
       <StyledIntro initial="hidden" animate="visible" variants={introVariants}>
-        Innovating digital solutions for over X years. Passionate about bridging
-        design and development to create compelling user experiences.
+        A versatile technologist graduating from the University of Notre Dame
+        with a keen interest in AI, research, and full-stack development.
+        Whether it's innovating financial systems or architecting next-gen AI
+        solutions, I leverage my vast tech expertise to drive forward-thinking
+        projects. Looking to craft transformative digital solutions across
+        industries.
       </StyledIntro>
     </StyledSection>
   );
