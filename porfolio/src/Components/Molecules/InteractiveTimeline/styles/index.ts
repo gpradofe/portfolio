@@ -10,32 +10,29 @@ interface CardProps {
 
 export const TimelineContainer = styled.div`
   position: relative;
-  height: 200vh;
+  height: 300vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  border: 1px solid red; /* temporary for debugging */
 `;
 
 export const VerticalLine = styled.div`
-  position: absolute;
-  height: 200vh;
+  height: 300vh;
   width: 4px;
   background-color: #333;
 `;
 
-export const Node = styled.div`
+export const Node = styled.div<NodeProps>`
   position: absolute;
-  scroll-snap-align: start;
   height: 12px;
   width: 12px;
   background-color: #555;
   border-radius: 50%;
+  top: ${({ index, total }) => `${((index + 1) / (total + 1)) * 100}%`};
   cursor: pointer;
   transition: background-color 0.3s;
-  transform: translateY(-50%); /* to position by the center of the node */
+  border: 1px solid green; /* temporary for debugging */
 
   &:hover {
     background-color: #777;

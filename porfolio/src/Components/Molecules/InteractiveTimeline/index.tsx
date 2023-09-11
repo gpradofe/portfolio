@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Parallax } from "react-scroll-parallax";
+import React, { useState } from "react";
 import {
   TimelineContainer,
   VerticalLine,
   Node,
   InteractiveCard,
 } from "./styles";
-import { Link, animateScroll as scroll, scroller } from "react-scroll";
-import { AnimatePresence, motion } from "framer-motion";
 
 const events = [
   {
@@ -48,58 +48,22 @@ const events = [
   },
 ];
 
-const InteractiveTimeline: React.FC = () => {
+const InteractiveTimeline = () => {
   const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
-  const timelineContainerRef = useRef<HTMLDivElement>(null);
-
-  const handleWheel = (e) => {
-    let newIndex;
-    if (e.deltaY < 0) {
-      // Scrolling up
-      newIndex = Math.max((selectedEvent || 0) - 1, 0);
-    } else {
-      // Scrolling down
-      newIndex = Math.min((selectedEvent || 0) + 1, events.length - 1);
-    }
-    setSelectedEvent(newIndex);
-    scroller.scrollTo(`event-${newIndex}`, {
-      duration: 500,
-      smooth: true,
-      containerId: "timelineContainer",
-    });
-  };
-
-  useEffect(() => {
-    // Add the wheel event listener to the timeline container
-    const container = timelineContainerRef.current;
-
-    if (container) {
-      container.addEventListener("wheel", handleWheel);
-
-      return () => {
-        // Cleanup
-        container.removeEventListener("wheel", handleWheel);
-      };
-    }
-  }, [selectedEvent]);
 
   return (
-    <TimelineContainer ref={timelineContainerRef}>
-      <VerticalLine />
+    <TimelineContainer>
+      <Parallax translateY={["0px", "-20px"]}>
+        <VerticalLine />
+      </Parallax>
 
       {events.map((event, index) => (
-        <>
-          <Link
-            to={`event-${index}`}
-            spy={true}
-            smooth={true}
-            duration={500}
-            containerId="timelineContainer"
-          >
-            <Node key={index} />
-          </Link>
-          <div id={`event-${index}`} style={{ height: "100vh" }} />
-        </>
+        <Node
+          key={index}
+          index={index}
+          total={events.length}
+          onClick={() => setSelectedEvent(index)}
+        />
       ))}
 
       <AnimatePresence>

@@ -3,7 +3,7 @@ import BootLoading from "../../Components/Organisms/BootLoading";
 import ViewModeContext from "../../Contexts/ViewModeContext";
 import PortfolioContent from "../../Components/Organisms/PortfolioContent";
 import { ClassicViewContainer, FadeInDiv, FadeOutDiv } from "./styles";
-import IntroSection from "../../Components/Molecules/IntroSection";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const ClassicViewPage: React.FC = () => {
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
@@ -26,13 +26,8 @@ const ClassicViewPage: React.FC = () => {
         setIsAnimationComplete: setIsAnimationComplete,
       }}
     >
-      <ClassicViewContainer>
-        <ViewModeContext.Provider
-          value={{
-            isAnimationComplete: isAnimationComplete,
-            setIsAnimationComplete: setIsAnimationComplete,
-          }}
-        >
+      <ParallaxProvider>
+        <ClassicViewContainer>
           <FadeOutDiv shouldFade={isAnimationComplete}>
             {showBootLoading && <BootLoading />}
           </FadeOutDiv>
@@ -40,8 +35,8 @@ const ClassicViewPage: React.FC = () => {
           <FadeInDiv shouldAppear={isAnimationComplete}>
             {showPortfolioContent && <PortfolioContent />}{" "}
           </FadeInDiv>
-        </ViewModeContext.Provider>
-      </ClassicViewContainer>
+        </ClassicViewContainer>
+      </ParallaxProvider>
     </ViewModeContext.Provider>
   );
 };
