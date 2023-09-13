@@ -4,6 +4,7 @@ import subtlePattern from "../../../../Assets/Images/subtle_pattern.jpg";
 
 export const StyledSection = styled.section`
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -53,4 +54,24 @@ export const StyledIntro = styled(motion.p)`
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); // A shadow to give depth to the paragraph
+`;
+export const StyledDetails = styled.p`
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+`;
+export const StyledNarrative = styled.p`
+  font-size: 1.2rem;
+  text-align: justify;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 80%;
+  line-height: 1.5;
+  color: #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 `;

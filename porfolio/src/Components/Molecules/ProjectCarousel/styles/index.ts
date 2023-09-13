@@ -6,6 +6,7 @@ import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 export const ProjectCarouselContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -31,14 +32,18 @@ export const StyledSlider = styled(Slider)`
 export const ProjectCard = styled.div`
   background: #212121; // Slightly different from the container for a layered feel
   color: #ffffff; // Primary text color
-  width: 300px;
-  height: 450px;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); // Subtle shadow for elevation
+  padding: 1.5vh;
+  margin: 1.5vh;
+  border-radius: 1.5vh;
+  box-shadow: 0px 1vh 1.5vh rgba(0, 0, 0, 0.2); // Subtle shadow for elevation
   transition: transform 0.5s;
   font-family: "Roboto", sans-serif; // Modern font, make sure to import it
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; // content starts at the top
+  height: 100%; // This ensures that the card occupies the full height of its container
+  min-height: 45vh; // adjust this value based on your design needs
+  position: relative; // Added this line
 
   &:hover {
     transform: translateY(-10px);
@@ -124,18 +129,6 @@ export const CodeModal = styled.div`
   z-index: 1000;
 `;
 
-export const StyledCodeSnippet = styled(SyntaxHighlighter).attrs(() => ({
-  style: solarizedlight,
-  language: "javascript", // you can change the language accordingly
-}))`
-  width: 80%;
-  max-height: 70%;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
-`;
-
 export const CloseButton = styled.button`
   position: absolute;
   top: 20px;
@@ -150,4 +143,92 @@ export const CloseButton = styled.button`
   &:hover {
     background-color: #d32f2f;
   }
+`;
+
+export const GitHubBox = styled.div`
+  background-color: #2a2a2a; // A bit darker than the card background
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  border: 1px solid #3a3a3a; // Adding a subtle border for more definition
+  position: absolute;
+  bottom: 2vh; // Or however much space you want from the bottom
+  left: 3vh; // Adjust according to your design
+  right: 3vh; // Adjust according to your design
+
+  a {
+    color: #61dafb; // GitHub color as accent
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+`;
+
+export const GitHubLogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  color: #ffffff; // Changed to white
+
+  span {
+    margin-left: 10px;
+    font-family: "Roboto", sans-serif; // Ensure using Roboto
+    font-weight: 500; // Slightly bold for emphasis
+    transition: color 0.3s; // Smooth transition for hover effect
+  }
+
+  &:hover {
+    color: #61dafb; // GitHub color as accent on hover
+  }
+`;
+
+export const DescriptionList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+
+  & > li {
+    position: relative;
+    padding-left: 1.5em;
+    padding-bottom: 0.5em;
+
+    &[data-content="•"]::before {
+      content: attr(data-content);
+      position: absolute;
+      left: 0.5em; // adjusted position
+      top: 0; // added top positioning
+      color: #b0b0b0;
+      font-weight: bold;
+    }
+  }
+`;
+export const WhiteLink = styled.a`
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+export const CardContent = styled.div`
+  flex: 1; // takes up all available space
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+export const PageTitle = styled.h1`
+  margin-bottom: 20vh;
+  font-size: 5rem; // Adjust as per your design needs
+  text-align: center; // Center align the title
+  color: White; // Adjust color as per your design
+  // Add other styles as required
 `;

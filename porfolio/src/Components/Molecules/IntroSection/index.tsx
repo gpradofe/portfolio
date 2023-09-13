@@ -1,8 +1,19 @@
 import React from "react";
-import { StyledIntro, StyledName, StyledSection, StyledTitle } from "./styles";
+import {
+  StyledDetails,
+  StyledIntro,
+  StyledName,
+  StyledNarrative,
+  StyledSection,
+  StyledTitle,
+} from "./styles";
 import { motion } from "framer-motion";
 import subtlePattern from "../../../Assets/Images/subtle_pattern.jpg";
-const IntroSection: React.FC = () => {
+
+interface IntroSectionProps {
+  isMorphed?: boolean;
+}
+const IntroSection: React.FC<IntroSectionProps> = ({ isMorphed = false }) => {
   const name = "Gustavo Aniceto";
   const letters = name.split("");
 
@@ -26,6 +37,54 @@ const IntroSection: React.FC = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { delay: 1.5 } },
   };
+  if (isMorphed) {
+    return (
+      <StyledSection>
+        <h1>Hello, I'm Gustavo Aniceto.</h1>
+
+        <StyledNarrative>
+          Currently pursuing my Bachelor of Science in Computer Science at the
+          esteemed University of Notre Dame's College of Engineering, I'm set to
+          graduate in December 2024. My academic journey has been marked with
+          recognition, having earned spots on the Dean’s List multiple times and
+          clinching the 'Mormon Holdings Most Innovative Idea of 2023' accolade.
+        </StyledNarrative>
+
+        <StyledNarrative>
+          Technically proficient in a plethora of programming languages from C,
+          C++, and C# to JavaScript's React framework, and Python, my toolkit is
+          vast and varied. I'm intimately familiar with databases like MongoDB,
+          PostgreSQL, SQL, and Redis, and cloud infrastructures including AWS,
+          Kubernetes, Rancher, and Jenkins. While I've dabbled with Julia,
+          Shell, HTML, and Flutter, I'm always eager to explore and expand my
+          horizons. My strongest suits lie in C# and React, where I employ both
+          to create intricate web architectures. But I'm not just about frontend
+          and backend — I've been instrumental in designing infrastructures,
+          databases, and curating optimal tech stacks. As someone deeply
+          fascinated by AI, I've ventured into research to understand and
+          leverage its potential in contemporary applications.
+        </StyledNarrative>
+
+        <StyledNarrative>
+          My professional stints at BTG PACTUAL, Latin America's leading
+          investment bank, have further honed my skills, allowing me to innovate
+          in financial systems and front trading platforms. Additionally, my
+          entrepreneurial spirit breathed life into 'The Country Market', a
+          project blending AI and RFID to address food deserts in rural US.
+        </StyledNarrative>
+
+        <StyledNarrative>
+          Beyond the digital realm, I have an ardent passion for cars. Back in
+          Brazil, I'd often find myself competing in professional drift meets,
+          reveling in the adrenaline. My disciplined side manifests in boxing—a
+          sport I've dedicated a decade to, sharpening my agility and strength.
+          From the rhythmic purr of an engine to the rhythmic dance in a boxing
+          ring, my life is a tapestry of diverse passions. And as I look
+          forward, I'm thrilled for the chapters yet to be written.
+        </StyledNarrative>
+      </StyledSection>
+    );
+  }
 
   return (
     <StyledSection>

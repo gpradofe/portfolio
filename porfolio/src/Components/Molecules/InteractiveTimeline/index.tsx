@@ -6,6 +6,7 @@ import {
   VerticalLine,
   Node,
   InteractiveCard,
+  ConnectingLine,
 } from "./styles";
 
 const events = [
@@ -48,39 +49,31 @@ const events = [
   },
 ];
 
-const InteractiveTimeline = () => {
-  const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
-
+const InteractiveTimeline: React.FC = () => {
   return (
     <TimelineContainer>
-      <Parallax translateY={["0px", "-20px"]}>
-        <VerticalLine />
-      </Parallax>
+      <VerticalLine />
 
-      {events.map((event, index) => (
-        <Node
-          key={index}
-          index={index}
-          total={events.length}
-          onClick={() => setSelectedEvent(index)}
-        />
-      ))}
+      {[...events].reverse().map((event, index) => (
+        <React.Fragment key={index}>
+          <Node index={index} total={events.length}>
+            <span>{event.date}</span>
+          </Node>
 
-      <AnimatePresence>
-        {selectedEvent !== null && (
+          <ConnectingLine index={index} total={events.length} />
+
           <InteractiveCard
             as={motion.div}
-            initial={{ opacity: 0, x: 10 }}
+            initial={{ opacity: 0.8, x: index % 2 === 0 ? 10 : -10 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 10 }}
-            index={selectedEvent}
+            exit={{ opacity: 0, x: index % 2 === 0 ? 10 : -10 }}
+            index={index}
             total={events.length}
           >
-            <h3>{events[selectedEvent].title}</h3>
-            <p>{events[selectedEvent].description}</p>
+            <h3>{event.title}</h3>
           </InteractiveCard>
-        )}
-      </AnimatePresence>
+        </React.Fragment>
+      ))}
     </TimelineContainer>
   );
 };
