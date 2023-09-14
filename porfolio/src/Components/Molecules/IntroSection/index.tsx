@@ -3,8 +3,10 @@ import {
   StyledDetails,
   StyledIntro,
   StyledName,
+  StyledNameMorphed,
   StyledNarrative,
   StyledSection,
+  StyledSectionMorphed,
   StyledTitle,
 } from "./styles";
 import { motion } from "framer-motion";
@@ -39,8 +41,8 @@ const IntroSection: React.FC<IntroSectionProps> = ({ isMorphed = false }) => {
   };
   if (isMorphed) {
     return (
-      <StyledSection>
-        <h1>Hello, I'm Gustavo Aniceto.</h1>
+      <StyledSectionMorphed>
+        <StyledNameMorphed>Hello, I'm Gustavo Aniceto.</StyledNameMorphed>
 
         <StyledNarrative>
           Currently pursuing my Bachelor of Science in Computer Science at the
@@ -82,7 +84,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ isMorphed = false }) => {
           ring, my life is a tapestry of diverse passions. And as I look
           forward, I'm thrilled for the chapters yet to be written.
         </StyledNarrative>
-      </StyledSection>
+      </StyledSectionMorphed>
     );
   }
 

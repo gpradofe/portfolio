@@ -3,29 +3,21 @@ import { BootContainer, BootLine, BootSnippet } from "./styles";
 import ViewModeContext from "../../../Contexts/ViewModeContext";
 
 const loadingSnippets = [
-  "[0.0001] Booting PortfolioOS Kernel v1.0...",
-  "[0.0010] Detecting hardware interfaces... PCIe, USB, NVMe OK.",
-  "[0.0020] Setting up interrupt controllers... IRQs set.",
-  "[0.0030] Calibrating CPU clock... Synchronized.",
-  "[0.0040] Establishing secure enclave... Encryption keys loaded.",
-  "[0.0050] Setting up virtual memory... Paging tables built.",
-  "[0.0060] Initializing CPU caches... L1, L2, L3 flushed.",
-  "[0.0070] Mounting root filesystem... EXT4 detected and mounted.",
-  "[0.0080] Loading dynamic linker (ld)... Resolving dependencies.",
-  "[0.0090] Establishing DBus connections...",
-  "[0.0100] Starting network daemon... IPv4/IPv6 stacks initialized.",
-  "[0.0110] Binding localhost to 127.0.0.1...",
-  "[0.0120] Connecting to WebSocket for live updates...",
-  "[0.0130] Starting Node.js backend server... Listening on port 3000.",
-  "[0.0140] Fetching API endpoints... /internships, /github, /skills.",
-  "[0.0150] Bundling and minifying ReactJS components...",
-  "[0.0160] Parsing GraphQL queries... Data retrieved.",
-  "[0.0170] Applying middleware layers... CORS, Helmet security headers set.",
-  "[0.0180] Loading WebGL components for 3D visualizations...",
-  "[0.0190] Syncing with CDN... Content fetched.",
-  "[0.0200] Initializing websockets for real-time interactions...",
-  "[0.0210] PortfolioOS boot sequence complete. Everything's green.",
-  "[0.0220] Welcome, Gustavo Aniceto. Initializing interactive GUI...",
+  "[0.0001] Booting PortfolioOS Kernel v1.0.1... X86_64 architecture detected.",
+  "[0.0010] Probing hardware interfaces... PCIe v4.0, USB 3.2, NVMe 1.3 confirmed.",
+  "[0.0020] Configuring interrupt controllers... 256 IRQs routed to IOAPIC.",
+  "[0.0030] Initializing CPU microcode updates... Triple-level cache hierarchy flushed.",
+  "[0.0040] Mounting root filesystem... EXT4 with journaling support. Disk I/O speed calibrated.",
+  "[0.0050] Loading ELF dynamic linker (ld-linux-x86-64.so.2)... Shared object dependencies mapped.",
+  "[0.0060] Spawning network daemons... IPv6 priority routing, TCP fast open enabled.",
+  "[0.0070] Initializing Node.js runtime v16.2.0... Backend server live on port 3000.",
+  "[0.0080] Fetching RESTful API endpoints... TLS 1.3 handshake successful with /internships, /github, /skills.",
+  "[0.0090] Parsing GraphQL subscriptions... Data sync with Apollo Client initiated.",
+  "[0.0100] Configuring HTTP/2.0 middleware layers... GZIP compression, CORS policy, Helmet CSP rules applied.",
+  "[0.0110] Bootstrapping WebGL kernel... 3D graphic shaders compiled with GLSL v4.60.",
+  "[0.0120] Orchestrating CDN with edge locations... Prefetching assets. Content Delivery Network synchronized.",
+  "[0.0130] PortfolioOS integrity check... Boot checksum valid. System state: nominal.",
+  "[0.0140] Welcome, to Gustavo Aniceto's Portfolio. Engaging immersive GUI experience...",
 ];
 
 const BootLoading: React.FC = () => {
@@ -41,7 +33,7 @@ const BootLoading: React.FC = () => {
         setIsAnimationComplete(true); // set the animation complete flag when finished
         clearInterval(timer); // clear the interval once done
       }
-    }, 300);
+    }, 150);
     return () => clearInterval(timer);
   }, [currentLine, setIsAnimationComplete]);
 

@@ -18,13 +18,10 @@ const OverlayContainer: React.FC = () => {
   return (
     <Container>
       <ScreenBackground src={overlayBackground} />
-      <ScreenText style={{ fontSize: "22px" }}>
+      <ScreenText>
         Please, choose one of the options below, and embark on a journey!
       </ScreenText>
-      <ScreenButton
-        onClick={() => console.log("hi")}
-        style={{ marginLeft: "7vw" }}
-      >
+      <ScreenButton disabled={true} style={{ marginLeft: "7vw" }}>
         Game Mode
       </ScreenButton>
       <ScreenButton onClick={handleClick}>Normal Mode</ScreenButton>

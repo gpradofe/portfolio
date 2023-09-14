@@ -15,6 +15,13 @@ export const ScreenButton = styled.button`
   margin: 10px;
   cursor: pointer;
   position: relative;
+  &:disabled {
+    background-color: grey; // or whatever grey you want
+    cursor: not-allowed;
+  }
+  @media only screen and (max-width: 1280px) {
+    font-size: 0.9vw;
+  }
 `;
 export const ScreenText = styled.div`
   font-family: "sans-serif";
@@ -22,6 +29,12 @@ export const ScreenText = styled.div`
   margin-bottom: 10%;
   margin-bottom: "2vh";
   position: relative;
+  @media only screen and (max-width: 1280px) {
+    font-size: 1.2vw;
+  }
+  @media only screen and (min-width: 1800px) {
+    font-size: 22px;
+  }
 `;
 export const ScreenBackground = styled.img`
   position: absolute;

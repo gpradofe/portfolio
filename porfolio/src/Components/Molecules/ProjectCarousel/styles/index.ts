@@ -41,8 +41,6 @@ export const ProjectCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start; // content starts at the top
-  height: 100%; // This ensures that the card occupies the full height of its container
-  min-height: 45vh; // adjust this value based on your design needs
   position: relative; // Added this line
 
   &:hover {
@@ -90,58 +88,17 @@ export const ProjectCard = styled.div`
       margin-bottom: 10px;
     }
   }
-`;
-
-export const RepoCard = styled.div`
-  border: 1px solid #e1e4e8;
-  padding: 16px;
-  margin-bottom: 16px;
-  border-radius: 6px;
-  h4 {
-    font-weight: 600;
-    margin-bottom: 8px;
+  @media only screen and (min-width: 1720px) {
+    height: 30vw;
   }
-  p {
-    color: #586069;
-    margin-bottom: 8px;
+  @media only screen and (max-width: 1680px) {
+    height: 40vw;
   }
-  span {
-    font-size: 12px;
-    background-color: #f1f8ff;
-    color: #0366d6;
-    padding: 2px 6px;
-    border-radius: 3px;
+  @media only screen and (max-width: 1280px) {
+    height: 65vw;
   }
-  margin-top: 10px;
-  font-size: 12px;
-`;
-
-export const CodeModal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-`;
-
-export const CloseButton = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px 15px;
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #d32f2f;
+  @media only screen and (max-width: 1440px) {
+    height: 40vw;
   }
 `;
 
@@ -200,12 +157,20 @@ export const DescriptionList = styled.ul`
     position: relative;
     padding-left: 1.5em;
     padding-bottom: 0.5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 14; // dynamically adjust based on height
+    -webkit-box-orient: vertical;
+
+    &.expanded {
+      -webkit-line-clamp: none;
+    }
 
     &[data-content="•"]::before {
       content: attr(data-content);
       position: absolute;
-      left: 0.5em; // adjusted position
-      top: 0; // added top positioning
+      left: 0.5em;
+      top: 0;
       color: #b0b0b0;
       font-weight: bold;
     }
@@ -226,7 +191,7 @@ export const CardContent = styled.div`
   justify-content: flex-start;
 `;
 export const PageTitle = styled.h1`
-  margin-bottom: 20vh;
+  margin-top: 10vh;
   font-size: 5rem; // Adjust as per your design needs
   text-align: center; // Center align the title
   color: White; // Adjust color as per your design

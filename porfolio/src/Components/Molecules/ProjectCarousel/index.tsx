@@ -12,6 +12,7 @@ import {
 } from "./styles";
 import { FaGithub } from "react-icons/fa"; // GitHub icon
 import { GitHubRepo } from "../../../Types/GithubTypes";
+
 type Description = {
   description: string[];
 };
@@ -91,9 +92,6 @@ const ProjectCarousel: React.FC = () => {
         "• Developed a multi-core process queue shell, 'pqsh', for advanced task scheduling.",
         "• Unique Feature:",
         "- Commands are queued rather than instantly executed.",
-        "• User Commands:",
-        "- `add COMMAND`: Adds job to waiting queue.",
-        "- `status [QUEUE]`: Shows metrics & job status per queue.",
         "• Scheduling Disciplines:",
         "- FIFO: Sequential job execution.",
         "- Round Robin: Cyclic job execution.",
@@ -118,39 +116,33 @@ const ProjectCarousel: React.FC = () => {
         "• Outcome & Visualization:",
         "- Successfully mapped the fundamental needs of food deserts in northern US.",
         "- Developed an interactive map displaying insights for each cluster.",
-        "• Start-up Impact:",
-        "- Delivered actionable insights for my start-up, the TCM, guiding strategy and focus.",
-        "• Published Research:",
         "- Authored and published a paper detailing the methodology and findings.",
       ],
     },
   };
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 2,
     responsive: [
       {
-        breakpoint: 750,
+        breakpoint: 1600, // Large Laptop
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1440, // Medium Laptop
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 1280, // Small Laptop
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 425,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
     ],

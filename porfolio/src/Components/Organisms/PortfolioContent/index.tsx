@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import IntroSection from "../../Molecules/IntroSection";
-import DetailsSection from "../../Molecules/DetailsSection";
 import InteractiveTimeline from "../../Molecules/InteractiveTimeline";
 import SkillsChart from "../../Molecules/SkillsChart";
 import ProjectCarousel from "../../Molecules/ProjectCarousel";
@@ -36,7 +35,7 @@ const PortfolioContent: React.FC = () => {
 
   return (
     <Container>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", height: "100vh" }}>
         <IntroSectionDiv widthPercentage={widthPercentage}>
           <IntroSection isMorphed={widthPercentage === 50} />
         </IntroSectionDiv>

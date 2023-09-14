@@ -8,7 +8,7 @@ export const StyledSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 95vh;
   padding: 2rem;
   background-color: #1a1a1a;
   background-image: linear-gradient(
@@ -21,10 +21,35 @@ export const StyledSection = styled.section`
   color: #ffffff;
   box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3); // An inset shadow to create a vignette effect
 `;
+export const StyledSectionMorphed = styled.section`
+  display: flex;
 
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 95vh;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  background-image: linear-gradient(
+      rgba(26, 26, 26, 0.95),
+      rgba(26, 26, 26, 0.95)
+    ),
+    url(${subtlePattern});
+  background-size: cover; // Cover the entire viewport
+  background-repeat: no-repeat; // Ensure the pattern doesn't repeat
+  color: #ffffff;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3); // An inset shadow to create a vignette effect
+`;
 export const StyledName = styled.div`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); // Text shadow to lift the name off the background
+  transition: transform 0.2s, color 0.2s;
+  font-size: 4rem;
+  &:hover {
+    transform: scale(1.05);
+    color: #f0c040; // Highlight color when hovered over
+  }
+`;
+export const StyledNameMorphed = styled.div`
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); // Text shadow to lift the name off the background
   transition: transform 0.2s, color 0.2s;
 
@@ -32,8 +57,14 @@ export const StyledName = styled.div`
     transform: scale(1.05);
     color: #f0c040; // Highlight color when hovered over
   }
+  @media only screen and (max-width: 1280px) {
+    font-size: 1.5vw;
+  }
+  @media only screen and (min-width: 1680px) {
+    font-size: 2rem;
+    margin-bottom: 2vh;
+  }
 `;
-
 export const StyledTitle = styled(motion.h2)`
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -63,10 +94,7 @@ export const StyledDetails = styled.p`
   color: #ccc;
 `;
 export const StyledNarrative = styled.p`
-  font-size: 1.2rem;
   text-align: justify;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   max-width: 80%;
   line-height: 1.5;
   color: #ccc;
@@ -74,4 +102,17 @@ export const StyledNarrative = styled.p`
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.08);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+
+  @media only screen and (max-width: 1280px) {
+    font-size: 0.8vw;
+  }
+  @media only screen and (max-width: 1440px) {
+    font-size: 0.8vh;
+  }
+  @media only screen and (max-width: 1680px) {
+    font-size: 1.02vw;
+  }
+  @media only screen and (min-width: 1700px) {
+    font-size: 0.8vw;
+  }
 `;

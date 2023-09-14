@@ -7,6 +7,7 @@ import {
   Node,
   InteractiveCard,
   ConnectingLine,
+  EventTitle,
 } from "./styles";
 
 const events = [
@@ -70,7 +71,7 @@ const InteractiveTimeline: React.FC = () => {
             index={index}
             total={events.length}
           >
-            <h3>{event.title}</h3>
+            <EventTitle>{event.title}</EventTitle>
           </InteractiveCard>
         </React.Fragment>
       ))}

@@ -1,8 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
 export const ScreenContainer = styled.div`
-  width: 29.2vw;
-  height: 17vw;
   position: absolute;
   top: 52%;
   left: 50%;
@@ -12,38 +10,21 @@ export const ScreenContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  width: 28.5vw;
+  height: 32vh;
   /* Trapezoidal shape */
   clip-path: polygon(0 0%, 100% 0, 98.3% 98%, 1.7% 98.4%);
-  @media (max-width: 768px) {
-    width: 80vw;
-    height: 80vw;
+
+  @media only screen and (max-width: 2000px) {
+    width: 33vw;
+    height: 33vh;
   }
-  @media (max-width: 1024px) {
-    width: 40vw;
-    height: 80vw;
-  }
-  @media (max-width: 1440px) {
-    width: 40w;
-    height: 27vw;
-  }
-  @media (max-width: 2000px) {
-    width: 28vw;
-    height: 17vw;
-  }
+
   border-radius: 1%; /* Slightly rounded corners; adjust as needed */
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
   border: 1px solid rgba(0, 0, 0, 0.2); /* Thin border for bezel illusion */
 `;
 
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
 const fade = keyframes`
   from { opacity: 1; }
   to { opacity: 0.25; }
